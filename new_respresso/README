@@ -23,3 +23,6 @@ In all the above examples, the results will be written in "test.dat".
 
 NOTE: To utilize mode 3, you need to install the "classy" module, which is based on the public Boltzman code CLASS. Please refer to their webpage http://class-code.net/ and/or https://github.com/lesgourg/class_public/wiki/Python-wrapper to learn how to install the python wrapper "classy". If you do not have classy, please comment out the 1st line of recon.py.
 
+New_represso written by obj432
+
+When I deployed RESPRESSO in my local python 3.10 environment, I found that RESPRESSO based on python 2.7 always reported errors in compilation, so I modified the corresponding respresso.py to respresso_new.py for python 3.10, and at the same time, I modified a little bit of the demo to adapt to the new one and put it in the At the same time, in order to make it easier for you to use the original RESPRESSO demo, I modified a little bit of the demo to fit the new respresso_new.py, and put it in the respresso_tutorial.ipynb file.

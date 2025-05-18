@@ -1,0 +1,42 @@
+RESPRESSO v1.1 written by Takahiro Nishimichi
+
+This is a python package that works for python 2.7. 
+The description of the package can be found at the webpage: http://www-utap.phys.s.u-tokyo.ac.jp/~nishimichi/public_codes/respresso/index.html
+
+A script working from the command line, "recon.py", is also provided. The usage can be found below. One can modify it for one's own purpose. The basic usage of the package is to prepare the linear power spectrum and give it to the respresso objects. Then you need only several lines to get the reconstructed nonlinear power spectrum for your model. You can work how it works from the script, recon.py.
+
+recon.py usage:
+
+mode 0: linear P(k,z) to nonlinear P(k,z)
+example: python recon.py 0 test_data/linear_power/plin_wmap5_z1.dat test.dat
+
+mode 1: linear P(k,z=0) (+ Om, w, z) to nonlinear P(k,z)
+example: python recon.py 1 test_data/linear_power/plin_wmap5_z0.dat test.dat 0.279 -1 0.5
+
+mode 2: T(k,z=0) (+ Om, h0, As, ns, k0(in 1/Mpc), w, z) to nonlinear P(k,z)
+example: python recon.py 2 test_data/transfer/tkwmap3.dat test.dat 0.234 0.734 2.37301e-09 0.961 0.002 -1. 1.5
+
+mode 3: cosmological parameters (Ob, Ocdm, h0, normalization(ln10^10As), ns, k0(in 1/Mpc), w, z) to nonlinear P(k,z)
+example: python recon.py 3 test.dat 0.03 0.15 0.7 3.1 0.96 0.002 -1.1 2.
+
+In all the above examples, the results will be written in "test.dat".
+
+NOTE: To utilize mode 3, you need to install the "classy" module, which is based on the public Boltzman code CLASS. Please refer to their webpage http://class-code.net/ and/or https://github.com/lesgourg/class_public/wiki/Python-wrapper to learn how to install the python wrapper "classy". If you do not have classy, please comment out the 1st line of recon.py.
+
+New_respresso modified by obj432
+
+When I deployed RESPRESSO in my local python 3.10 environment, I found that RESPRESSO based on python 2.7 always reported errors in compilation, so I modified the corresponding respresso.py to respresso_new.py for python 3.10, and at the same time, I modified a little bit of the demo to adapt to the new one and put it in the At the same time, in order to make it easier for you to use the original RESPRESSO demo, I modified a little bit of the demo to fit the new respresso_new.py, and put it in the respresso_tutorial.ipynb file. 
+
+If use RESPRESSO, please cite:
+@article{Nishimichi_2017,
+   title={Moving around the cosmological parameter space: A nonlinear power spectrum reconstruction based on high-resolution cosmic responses},
+   volume={96},
+   ISSN={2470-0029},
+   url={http://dx.doi.org/10.1103/PhysRevD.96.123515},
+   DOI={10.1103/physrevd.96.123515},
+   number={12},
+   journal={Physical Review D},
+   publisher={American Physical Society (APS)},
+   author={Nishimichi, Takahiro and Bernardeau, Francis and Taruya, Atsushi},
+   year={2017},
+   month=dec }
